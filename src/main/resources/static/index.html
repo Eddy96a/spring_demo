@@ -100,15 +100,17 @@
                     const nome = account.nome;
                     const cognome = account.cognome;
                     const admin = account.admin;
+                    const numeroLibri = account.libri.length;
                     //cast admin to a boolean value
                     console.log(admin);
+                    console.log("numero libri: " + numeroLibri);
                     var url;
                     if(admin == true){
                         console.log("sono un admin");
                         url = 'admin.html?nome=' + nome + '&cognome=' + cognome;
                     }else{
                         console.log("sono un utente");
-                        url = 'home.html?nome=' + nome + '&cognome=' + cognome;
+                        url = 'home.html?nome=' + nome + '&cognome=' + cognome + '&numeroLibri=' + numeroLibri;
                     }
                     // Reindirizziamo l'utente a home.html con i dati come parametri nell'URL
                     console.log(url);

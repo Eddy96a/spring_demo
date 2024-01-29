@@ -22,6 +22,14 @@
             font-size: 24px;
             font-weight: bold;
         }
+        #libriContainer {
+            text-align: center;
+        }
+
+        #numeroLibri {
+            font-size: 24px;
+            font-weight: bold;
+        }
 
     </style>
 </head>
@@ -29,27 +37,34 @@
 <div id="welcomeContainer">
     <p id="welcomeMessage">Benvenuto mario rossi</p>
 </div>
+<br>
+<div id="libriContainer">
+    <p id="numeroLibri">Hai n libri</p>
+</div>
 </body>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         // Recupera i dati dall'URL
         const nome = getParametroDallURL('nome');
         const cognome = getParametroDallURL('cognome');
+        const numeroLibri = getParametroDallURL('numeroLibri');
 
         console.log("Nome: " + nome);
         console.log("Cognome: " + cognome);
+        console.log("Numero libri: " + numeroLibri);
 
         // Costruisci il messaggio di benvenuto
         const welcomeMessage = 'Benvenuto ' + nome + ' ' + cognome;
+        const numeroLibriMessage = '<br>Hai ' + numeroLibri + ' libri';
 
 
         // Inserisci il messaggio nel div
         const welcomeDiv = document.getElementById('welcomeMessage');
         welcomeDiv.textContent = welcomeMessage;
 
-        // Aggiungi anche le righe per visualizzare nome e cognome nel div
-        const userDetailsDiv = document.getElementById('userDetails');
-        userDetailsDiv.innerHTML = welcomeMessage;
+        const numeroLibriDiv = document.getElementById('numeroLibri');
+        numeroLibriDiv.innerHTML = numeroLibriMessage;
+
     });
 
     // Funzione per ottenere un parametro dall'URL
