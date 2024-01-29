@@ -24,9 +24,22 @@ public class AccountManager {
     }
     private void loadDatabase() {
         System.out.println("Loanding database");
-        accounts.add(new Account("Mario","Tino","mario","589", true));
-        accounts.add(new Account("Luigi","Fillo","luigi","243", false));
-        accounts.add(new Account("Giovanni","Franco","giovanni","796", false));
+        Account a1 = new Account("Mario","Tino","mario","589", true);
+        a1.addLibro(new Libro("Mario Rossi", "Il libro di Mario"));
+        a1.addLibro(new Libro("Mario Rossi", "Paura delle formiche"));
+
+        Account a2 = new Account("Luigi","Fillo","luigi","243", false);
+        a2.addLibro(new Libro("Luigi Fillo", "Diario di Fillo"));
+        a2.addLibro(new Libro("Luigi Fillo", "Orient Express , la vendetta"));
+        a2.addLibro(new Libro("Luigi Fillo", "Al bar con il cane"));
+
+        Account a3 = new Account("Giovanni","Franco","giovanni","796", false);
+        a3.addLibro(new Libro("Giovanni Franco", "Giovannone il gran ciccione"));
+
+
+        accounts.add(a1);
+        accounts.add(a2);
+        accounts.add(a3);
 
     }
 

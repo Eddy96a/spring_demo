@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Account {
@@ -8,6 +10,8 @@ public class Account {
     private String username;
     private String password;
     private boolean admin;
+
+    private List<Libro> libri = new ArrayList<>();
 
     public Account() {
 
@@ -18,6 +22,14 @@ public class Account {
         this.username = username;
         this.password = password;
         this.admin = admin;
+    }
+
+    public void addLibro(Libro libro) {
+        this.libri.add(libro);
+    }
+
+    public List<Libro> getLibri() {
+        return this.libri;
     }
 
     public void setNome(String nome) {
