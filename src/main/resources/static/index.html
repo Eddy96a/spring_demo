@@ -99,9 +99,18 @@
                 .then(account => {
                     const nome = account.nome;
                     const cognome = account.cognome;
-
+                    const admin = account.admin;
+                    //cast admin to a boolean value
+                    console.log(admin);
+                    var url;
+                    if(admin == true){
+                        console.log("sono un admin");
+                        url = 'admin.html?nome=' + nome + '&cognome=' + cognome;
+                    }else{
+                        console.log("sono un utente");
+                        url = 'home.html?nome=' + nome + '&cognome=' + cognome;
+                    }
                     // Reindirizziamo l'utente a home.html con i dati come parametri nell'URL
-                    var url = 'home.html?nome=' + nome + '&cognome=' + cognome;
                     console.log(url);
                     window.location.href = url;
                 })
