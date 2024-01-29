@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffff00;
+        }
+
+        #welcomeContainer {
+            text-align: center;
+        }
+
+        #welcomeMessage {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+<div id="welcomeContainer">
+    <p id="welcomeMessage">Benvenuto mario rossi</p>
+</div>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Recupera i dati dall'URL
+        const nome = getParametroDallURL('nome');
+        const cognome = getParametroDallURL('cognome');
+
+        console.log("Nome: " + nome);
+        console.log("Cognome: " + cognome);
+
+        // Costruisci il messaggio di benvenuto
+        const welcomeMessage = 'Benvenuto Admin: ' + nome + ' ' + cognome;
+
+
+        // Inserisci il messaggio nel div
+        const welcomeDiv = document.getElementById('welcomeMessage');
+        welcomeDiv.textContent = welcomeMessage;
+
+        // Aggiungi anche le righe per visualizzare nome e cognome nel div
+        const userDetailsDiv = document.getElementById('userDetails');
+        userDetailsDiv.innerHTML = welcomeMessage;
+    });
+
+    // Funzione per ottenere un parametro dall'URL
+    function getParametroDallURL(parametro) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(parametro) || '';
+    }
+
+
+</script>
+</html>
