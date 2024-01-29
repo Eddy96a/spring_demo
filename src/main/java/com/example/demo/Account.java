@@ -7,15 +7,17 @@ public class Account {
     private String cognome;
     private String username;
     private String password;
+    private boolean admin;
 
     public Account() {
 
     }
-    public Account(String nome, String cognome, String username, String password) {
+    public Account(String nome, String cognome, String username, String password, boolean admin) {
         this.nome = nome;
         this.cognome = cognome;
         this.username = username;
         this.password = password;
+        this.admin = admin;
     }
 
     public void setNome(String nome) {
@@ -45,6 +47,9 @@ public class Account {
         }
         this.password = password;
     }
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
+    }
 
     public String getNome() {
         return this.nome;
@@ -61,6 +66,11 @@ public class Account {
     public String getPassword() {
         return this.password;
     }
+
+    public boolean isAdmin() {
+        return this.admin;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

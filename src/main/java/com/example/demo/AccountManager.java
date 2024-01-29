@@ -24,9 +24,9 @@ public class AccountManager {
     }
     private void loadDatabase() {
         System.out.println("Loanding database");
-        accounts.add(new Account("Mario","Tino","mario","589"));
-        accounts.add(new Account("Luigi","Fillo","luigi","243"));
-        accounts.add(new Account("Giovanni","Franco","giovanni","796"));
+        accounts.add(new Account("Mario","Tino","mario","589", true));
+        accounts.add(new Account("Luigi","Fillo","luigi","243", false));
+        accounts.add(new Account("Giovanni","Franco","giovanni","796", false));
 
     }
 
