@@ -51,6 +51,28 @@
             background-color: yellow;
         }
 
+        #listaLibri {
+            text-align: center;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 15px;
+        }
+
+        th {
+            background: darkgoldenrod;
+        }
+
+        td{
+            background: #f0f0f0;
+            opacity: 0.5;
+        }
+
     </style>
 </head>
 <body>
@@ -62,23 +84,54 @@
         <p id="numeroLibri">Hai n libri</p>
     </div>
     <button type="button" onclick="caricaLibri()">Carica Libri</button>
+    <br>
+    <br>
+    <div id="listaLibri">
+        <table id="tableLibri">
+            <tr>
+                <th>Titolo</th>
+                <th>Autore</th>
+            </tr>
+        </table>
+
+    </div>
 </body>
 <script>
 
     function caricaLibri(){
-        alert("Carica libri");
-    }
+    fetch('http://localhost:8080/books?username=' + username)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            const table = document.getElementById('tableLibri');
+            // Rimuovi tutte le righe esistenti, tranne l'intestazione
+            while (table.rows.length > 1) {
+                table.deleteRow(1);
+            }
+            data.forEach(libro => {
+                // Aggiungi una nuova riga alla tabella
+                const row = table.insertRow(-1);
+                const cell1 = row.insertCell(0);
+                const cell2 = row.insertCell(1);
+                cell1.innerHTML = libro.titolo;
+                cell2.innerHTML = libro.autore;
+            });
+        });
+}
 
+    var username;
 
     document.addEventListener('DOMContentLoaded', function () {
         // Recupera i dati dall'URL
         const nome = getParametroDallURL('nome');
         const cognome = getParametroDallURL('cognome');
         const numeroLibri = getParametroDallURL('numeroLibri');
+        username = getParametroDallURL('username');
 
         console.log("Nome: " + nome);
         console.log("Cognome: " + cognome);
         console.log("Numero libri: " + numeroLibri);
+        console.log("Username: " + username);
 
         // Costruisci il messaggio di benvenuto
         const welcomeMessage = 'Benvenuto ' + nome + ' ' + cognome;
