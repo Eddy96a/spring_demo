@@ -26,6 +26,5 @@ public class HomeController {
         System.out.println("password: "+ password);
         return AccountManager.getInstance().login(username, password);
 
-
     }
 }
