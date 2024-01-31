@@ -10,7 +10,7 @@
             height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: start;
             align-items: center;
             background-color: #f0f0f0;
             background: url('./homo_sfondo.png') no-repeat center center fixed;
@@ -36,18 +36,40 @@
             font-weight: bold;
         }
 
+        button {
+            padding: 10px; /* Aumentato il padding per aumentare l'altezza del bottone */
+            width: 200px;
+            height: 40px; /* Impostato l'altezza del bottone a 40px */
+            border-radius: 5px; /* Aggiunto bordi arrotondati */
+            background-color: darkgoldenrod; /* Impostato uno sfondo verde scuro */
+            color: black; /* Impostato il colore del testo a bianco */
+            border: none; /* Rimossa la cornice del bordo */
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: yellow;
+        }
+
     </style>
 </head>
 <body>
-<div id="welcomeContainer">
-    <p id="welcomeMessage">Benvenuto mario rossi</p>
-</div>
-<br>
-<div id="libriContainer">
-    <p id="numeroLibri">Hai n libri</p>
-</div>
+    <div id="welcomeContainer">
+        <p id="welcomeMessage">Benvenuto mario rossi</p>
+    </div>
+    <br>
+    <div id="libriContainer">
+        <p id="numeroLibri">Hai n libri</p>
+    </div>
+    <button type="button" onclick="caricaLibri()">Carica Libri</button>
 </body>
 <script>
+
+    function caricaLibri(){
+        alert("Carica libri");
+    }
+
+
     document.addEventListener('DOMContentLoaded', function () {
         // Recupera i dati dall'URL
         const nome = getParametroDallURL('nome');
