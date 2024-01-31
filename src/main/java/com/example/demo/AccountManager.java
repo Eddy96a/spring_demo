@@ -66,5 +66,12 @@ public class AccountManager {
         }
         throw new WrongPasswordException();
     }
-
+    public List<Libro> getLibri(String username) throws UserNotFoundException {
+        for (Account account : accounts) {
+            if (account.getUsername().equals(username)) {
+                return account.getLibri();
+            }
+        }
+        throw new UserNotFoundException();
+    }
 }
